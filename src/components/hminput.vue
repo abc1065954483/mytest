@@ -1,11 +1,13 @@
 <template>
   <div class="input">
+     <!-- :text2="imginfo.gender === 1 ?'男' :'女'" -->
 <input :type="type"
      class="input1"
      :placeholder="placeholder"
     @input="handleinput"
     :value="value"
-    :class="{success:status,faii:!status}"
+
+    :class="status===true ? 'success' : 'faii'"
     @blur="handlefocus"
 >
   </div>

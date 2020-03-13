@@ -1,5 +1,6 @@
 <template>
   <div class="personal">
+      <router-link :to="'/useredit/'+userinfo.id">
       <div class="header">
           <div class="h-img"><img :src="userinfo.head_img" alt=""></div>
           <div class="h-right">
@@ -9,10 +10,11 @@
               <div class="h-time">{{userinfo.create_date}}</div>
           </div>
       </div>
+      </router-link>
       <div class="cell">
-          <mycell text="我的关注" text2="关注的用户"></mycell>
+          <mycell text="我的关注" text2="关注的用户" @cellclick='handlefoluu'></mycell>
           <mycell text="我的跟帖" text2="跟帖"></mycell>
-          <mycell text="我的收藏" text2="文章/视频"></mycell>
+          <mycell text="我的收藏" text2="文章/视频" @cellclick='mystar'></mycell>
           <mycell text="设置"></mycell>
       </div>
       <div class="btn2"><hmbtn text="退出"></hmbtn></div>
@@ -33,7 +35,15 @@ export default {
       userinfo: ''
     }
   },
+  methods: {
+    handlefoluu () {
+      this.$router.push({ name: 'myfollows' })
+    },
+    mystar () {
+      this.$router.push({ name: 'mystar' })
+    }
 
+  },
   mounted () {
     // console.log(this.$route)
 
